@@ -1,6 +1,6 @@
 {
   "name": "react-native-flip-timer-fixed",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "scripts": {
     "android": "react-native run-android",
@@ -9,7 +9,6 @@
     "start": "react-native start",
     "test": "jest"
   },
-
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
@@ -27,5 +26,4 @@
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
   }
-
 }

@@ -88,7 +88,7 @@ export default App;
 
 ## Contribution
 
-> thank to - [@pritishvaidya](mailto:pritishvaidya94@gmail.com).
+> thanks to - [@pritishvaidya](mailto:pritishvaidya94@gmail.com).
 
 > https://github.com/pritishvaidya/react-native-flip-timer
 
