@@ -2,10 +2,6 @@ A Flip timer implementation in React Native.
 
 Since MatrixMath is no longer supported on React Native, I attempted to address the issue in this repository.
 
-> thank to - [@pritishvaidya](mailto:pritishvaidya94@gmail.com).
-
-> https://github.com/pritishvaidya/react-native-flip-timer
-
 ## Show Cases
 
 |                                IOS                                 |                                Android                                 |
@@ -90,6 +86,10 @@ export default App;
 - Support for Labels
 
 ## Contribution
+
+> thank to - [@pritishvaidya](mailto:pritishvaidya94@gmail.com).
+
+> https://github.com/pritishvaidya/react-native-flip-timer
 
 - [@BasicHealin](mailto:hamidbounsir@gmail.com) The main author.
 
