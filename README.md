@@ -65,6 +65,7 @@ export default App;
 | time            |                      required | `string / number` | Time (in seconds)     |
 | play            |                          true | bool              | Play the timer        |
 | wrapperStyle    |                          `{}` | object            | Wrapper for the Timer |
+| showCircles     |                          true | bool              | display dots          |
 | flipNumberProps | [`{...}`](#flip-number-props) | `defaults`        | Flip Number Props     |
 
 #### Flip Number Props

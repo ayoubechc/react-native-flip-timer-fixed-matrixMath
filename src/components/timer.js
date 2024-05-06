@@ -9,7 +9,14 @@ import TransformUtils from '../utils';
 
 import style from './style';
 
-const Timer = ({time, play = true, wrapperStyle, flipNumberProps}) => {
+const Timer = ({
+  time,
+  play,
+  wrapperStyle,
+  flipNumberProps,
+  onComplete,
+  showCircles,
+}) => {
   const [timeState, setTimeState] = useState({
     hours: 0,
     minutes: 0,
@@ -19,24 +26,38 @@ const Timer = ({time, play = true, wrapperStyle, flipNumberProps}) => {
   useEffect(() => {
     const {hours, minutes, seconds} = TransformUtils.formatNumberToTime(time);
     setTimeState({hours, minutes, seconds});
-    if (play) {
-      const timer = setInterval(() => updateTime(), 1000);
-      return () => clearInterval(timer);
-    }
-  }, []);
+  }, [time]);
 
   useEffect(() => {
+    let timer;
     if (play) {
-      const timer = setInterval(() => updateTime(), 1000);
-      return () => clearInterval(timer);
+      timer = setInterval(() => updateTime(), 1000);
     }
-  }, [play]);
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [play, timeState]);
 
   const updateTime = () => {
     setTimeState(prevState => {
-      const {hours, minutes, seconds} = prevState;
-      const newState = TransformUtils.addTime(hours, minutes, seconds);
-      return {...prevState, ...newState};
+      let {hours, minutes, seconds} = prevState;
+
+      if (seconds > 0) {
+        seconds -= 1;
+      } else if (minutes > 0) {
+        minutes -= 1;
+        seconds = 59;
+      } else if (hours > 0) {
+        hours -= 1;
+        minutes = 59;
+        seconds = 59;
+      } else {
+        clearInterval(timer);
+        if (onComplete) onComplete();
+        return prevState; // Keep state the same when time is up
+      }
+
+      return {hours, minutes, seconds};
     });
   };
 
@@ -47,11 +68,11 @@ const Timer = ({time, play = true, wrapperStyle, flipNumberProps}) => {
       {!!hours && (
         <FlipNumber number={hours} unit="hours" {...flipNumberProps} />
       )}
-      <Separator />
+      <Separator showCircles={showCircles} />
       {!!minutes && (
         <FlipNumber number={minutes} unit="minutes" {...flipNumberProps} />
       )}
-      <Separator />
+      <Separator showCircles={showCircles} />
       {!!seconds && (
         <FlipNumber number={seconds} unit="seconds" {...flipNumberProps} />
       )}
@@ -71,6 +92,8 @@ Timer.propTypes = {
     flipCardStyle: PropTypes.object,
     numberStyle: PropTypes.object,
   }),
+  onComplete: PropTypes.func,
+  showCircles: PropTypes.bool,
 };
 
 export default Timer;

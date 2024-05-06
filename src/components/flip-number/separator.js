@@ -3,11 +3,15 @@ import {View} from 'react-native';
 
 import style from '../style';
 
-function Separator() {
+function Separator({showCircles}) {
   return (
     <View style={style.separator}>
-      <View style={style.circle} />
-      <View style={style.circle} />
+      {showCircles && (
+        <>
+          <View style={style.circle} />
+          <View style={style.circle} />
+        </>
+      )}
     </View>
   );
 }

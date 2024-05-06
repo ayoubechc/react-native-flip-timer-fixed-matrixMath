@@ -75,14 +75,14 @@ const NumberCard = ({
       <Card
         type="upper"
         size={size}
-        number={number}
+        number={previousNumber}
         cardStyle={cardStyle}
         numberStyle={numberStyle}
       />
       <Card
         type="lower"
         size={size}
-        number={previousNumber}
+        number={number}
         cardStyle={cardStyle}
         numberStyle={numberStyle}
       />
@@ -90,7 +90,7 @@ const NumberCard = ({
         setRef={ref => (frontRef.current = ref)}
         type="front"
         size={size}
-        number={previousNumber}
+        number={number}
         flipCardStyle={flipCardStyle}
         numberStyle={numberStyle}
       />
@@ -98,7 +98,7 @@ const NumberCard = ({
         setRef={ref => (backRef.current = ref)}
         type="back"
         size={size}
-        number={number}
+        number={previousNumber}
         flipCardStyle={flipCardStyle}
         numberStyle={numberStyle}
       />

@@ -1,12 +1,14 @@
 import {StyleSheet} from 'react-native';
 
+//TODO : use colors from utils/colors
 export default StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   numberWrapper: {
     backgroundColor: '#333333',
-    margin: 3,
+    margin: 1,
     shadowColor: '#1f1f1f',
     shadowOffset: {
       width: 0,
