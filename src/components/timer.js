@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,6 @@ import FlipNumber from './flip-number';
 import Separator from './flip-number/separator';
 
 import TransformUtils from '../utils';
-
 import style from './style';
 
 const Timer = ({
@@ -23,20 +22,26 @@ const Timer = ({
     seconds: 0,
   });
 
+  const timerRef = useRef(null); // Use a ref to keep track of the timer
+
   useEffect(() => {
     const {hours, minutes, seconds} = TransformUtils.formatNumberToTime(time);
     setTimeState({hours, minutes, seconds});
   }, [time]);
 
   useEffect(() => {
-    let timer;
     if (play) {
-      timer = setInterval(() => updateTime(), 1000);
+      timerRef.current = setInterval(updateTime, 1000);
+    } else if (timerRef.current) {
+      clearInterval(timerRef.current);
     }
+
     return () => {
-      if (timer) clearInterval(timer);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
-  }, [play, timeState]);
+  }, [play]);
 
   const updateTime = () => {
     setTimeState(prevState => {
@@ -52,9 +57,9 @@ const Timer = ({
         minutes = 59;
         seconds = 59;
       } else {
-        clearInterval(timer);
+        clearInterval(timerRef.current);
         if (onComplete) onComplete();
-        return prevState; // Keep state the same when time is up
+        return prevState;
       }
 
       return {hours, minutes, seconds};
