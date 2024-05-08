@@ -25,5 +25,11 @@
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
-  }
+  },
+  "homepage": "https://github.com/ayoubechc/react-native-flip-timer-fixed-matrixMath",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ayoubechc/react-native-flip-timer-fixed-matrixMath.git"
+} 
 }

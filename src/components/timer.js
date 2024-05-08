@@ -65,17 +65,11 @@ const Timer = ({
 
   return (
     <View style={[style.wrapper, wrapperStyle]}>
-      {!!hours && (
-        <FlipNumber number={hours} unit="hours" {...flipNumberProps} />
-      )}
+      <FlipNumber number={hours} unit="hours" {...flipNumberProps} />
       <Separator showCircles={showCircles} />
-      {!!minutes && (
-        <FlipNumber number={minutes} unit="minutes" {...flipNumberProps} />
-      )}
+      <FlipNumber number={minutes} unit="minutes" {...flipNumberProps} />
       <Separator showCircles={showCircles} />
-      {!!seconds && (
-        <FlipNumber number={seconds} unit="seconds" {...flipNumberProps} />
-      )}
+      <FlipNumber number={seconds} unit="seconds" {...flipNumberProps} />
     </View>
   );
 };
