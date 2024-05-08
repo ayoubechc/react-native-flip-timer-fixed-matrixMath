@@ -1,6 +1,6 @@
 {
   "name": "react-native-flip-timer-fixed",
-  "version": "1.0.3",
+  "version": "1.0.31",
   "private": false,
   "scripts": {
     "android": "react-native run-android",
