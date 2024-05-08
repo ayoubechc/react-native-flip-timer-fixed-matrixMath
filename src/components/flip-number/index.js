@@ -18,11 +18,11 @@ function FlipNumber({
   numberStyle,
 }) {
   number = parseInt(number);
-  let previousNumber = number - 1;
+  let previousNumber = number;
   if (unit !== 'hours') {
     previousNumber = previousNumber === -1 ? 59 : previousNumber;
   } else {
-    previousNumber = previousNumber === -1 ? 23 : previousNumber;
+    previousNumber = previousNumber === -1 ? 0 : previousNumber;
   }
   number = number < 10 ? `0${number}` : number;
   previousNumber = previousNumber < 10 ? `0${previousNumber}` : previousNumber;

@@ -43,12 +43,12 @@ const NumberCard = ({
     Animated.parallel([
       Animated.timing(rotateFront, {
         toValue: 180,
-        duration: 800,
+        duration: 300,
         useNativeDriver: true,
       }),
       Animated.timing(rotateBack, {
         toValue: 0,
-        duration: 800,
+        duration: 300,
         useNativeDriver: true,
       }),
     ]).start();
