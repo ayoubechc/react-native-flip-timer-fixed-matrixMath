@@ -88,11 +88,14 @@ export default App;
 
 ## Contribution
 
+The main authors:
+
+- [@BasicHealin](https://github.com/BasicHealin).
+- [@ayoubechc](https://github.com/ayoubechc).
+
 > thanks to - [@pritishvaidya](mailto:pritishvaidya94@gmail.com).
 
 > https://github.com/pritishvaidya/react-native-flip-timer
-
-- [@BasicHealin](mailto:hamidbounsir@gmail.com) The main author.
 
 ## Questions
 
